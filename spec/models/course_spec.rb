@@ -1,5 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Course, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context "Column size" do
+    it { should ensure_length_of(:name).is_equal_to(45) }
+    it { should ensure_length_of(:description).is_equal_to(45) }
+  end
 end

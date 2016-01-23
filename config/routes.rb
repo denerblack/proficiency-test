@@ -1,20 +1,6 @@
 Rails.application.routes.draw do
   resources :classrooms, only: [:index, :create, :destroy], defaults: { format: :json }
 
-  get 'students/index'
-
-  get 'students/show'
-
-  get 'students/new'
-
-  get 'students/create'
-
-  get 'students/edit'
-
-  get 'students/update'
-
-  get 'students/destroy'
-
   resources :courses
   resources :students
 
