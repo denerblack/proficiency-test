@@ -7,13 +7,13 @@
       <form ng-submit="addClassroom()">
         <div class="row">
           <div class="col-xs-6">
-            <select ng-model="newClassroom.student"
-                    ng-options="student as student.name for student in students"
+            <select ng-model="newClassroom.classroom.student"
+                    ng-options="student as student.name for student in students track by student.id"
                     class="form-control">
             </select>
           </div>
           <div class="col-xs-6">
-            <select ng-model="newClassroom.course"
+            <select ng-model="newClassroom.classroom.course"
                     ng-options="course as course.name for course in courses"
                     class="form-control">
             </select>
@@ -29,33 +29,33 @@
       </form>
     </div>
 
+
+    <h3>Currently Visiting</h3>
+    <hr />
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Course Name</th>
+          <th>Student Name</th>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-show="!classrooms.length">
+          <td colspan="4">{{classrooms}}No classrooms.</td>
+        </tr>
+        <tr ng-repeat="classroom in classrooms">
+          <td>{{ classroom.course.name }}</td>
+          <td>{{ classroom.student.name }}</td>
+          <td><a class="btn btn-danger" ng-click="deleteClassroom($index)">Remove</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script type="text/javascript" charset="utf-8">
+      var students  = <%= @students.to_json.html_safe %>;
+      var courses   = <%= @courses.to_json.html_safe %>;
+    </script>
+
   </div>
-
-  <h3>Currently Visiting</h3>
-  <hr />
-  <table class="table table-bordered table-striped">
-    <thead>
-      <tr>
-        <th>Course Name</th>
-        <th>Student Name</th>
-        <th>&nbsp;</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-show="!classrooms.length">
-        <td colspan="4">No classrooms.</td>
-      </tr>
-      <tr ng-repeat="classroom in classrooms">
-        <td>{{ classroom.course.name }}</td>
-        <td>{{ classroom.student.name }}</td>
-        <td><a class="btn btn-danger" ng-click="deleteClassroom($index)">Remove</a></td>
-      </tr>
-    </tbody>
-  </table>
-
-  <script type="text/javascript" charset="utf-8">
-//    var students  = <%= @students.to_json.html_safe %>;
-//    var courses   = <%= @courses.to_json.html_safe %>;
-  </script>
-
 </div>

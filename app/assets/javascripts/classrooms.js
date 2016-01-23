@@ -9,9 +9,14 @@ classroomCenter.factory("Classroom", function($resource) {
 
 classroomCenter.controller("classroomsController", function($scope, Classroom) {
     $scope.classrooms = Classroom.index()
-    console.log(Classroom.index())
-//    $scope.students = students
-//    $scope.courses  = courses
+    $scope.students = []
+    for (var i in students) {
+        $scope.students.push({"id": students[i].id, "name": students[i].name})
+    }
+    $scope.courses  = []
+    for (var i in courses) {
+        $scope.courses.push({"id": courses[i].id, "name": courses[i].name})
+    }
 
     $scope.addClassroom = function() {
         classroom = Classroom.save($scope.newClassroom)

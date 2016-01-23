@@ -1,9 +1,8 @@
 class ClassroomsController < ApplicationController
   respond_to :json
   def index
-#    @students = Student.all
-#    @courses  = Course.all
-#    puts Classroom.all.to_json
+    @students = Student.all
+    @courses  = Course.all
     respond_to do |format|
       format.json { render json: Classroom.all }
       format.html
@@ -11,13 +10,17 @@ class ClassroomsController < ApplicationController
   end
 
   def create
-    respond_with Classroom.create(classrooms_params)
+    respond_with Classroom.create(
+      student_id: classrooms_params[:student][:id],
+      course_id: classrooms_params[:course][:id]
+    )
   end
 
   def destroy
+    respond_with Classroom.destroy(params[:id])
   end
 
   def classrooms_params
-    params.require(:classroom).permit(course: [:id], student: [:id])
+    params.require(:classroom).permit(course: [:id, :name], student: [:id, :name])
   end
 end
