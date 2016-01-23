@@ -30,7 +30,6 @@
     </div>
 
 
-    <h3>Currently Visiting</h3>
     <hr />
     <table class="table table-bordered table-striped">
       <thead>
@@ -42,7 +41,7 @@
       </thead>
       <tbody>
         <tr ng-show="!classrooms.length">
-          <td colspan="4">{{classrooms}}No classrooms.</td>
+          <td colspan="4">No classrooms.</td>
         </tr>
         <tr ng-repeat="classroom in classrooms">
           <td>{{ classroom.course.name }}</td>
