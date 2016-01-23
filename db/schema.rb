@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20160122231011) do
   end
 
   create_table "students", force: true do |t|
-    t.string   "name"
+    t.string   "name",            limit: 45
     t.string   "register_number", limit: 45
     t.integer  "status"
     t.datetime "created_at"
