@@ -1,5 +1,5 @@
 class ClassroomsController < ApplicationController
-  respond_to :json
+  respond_to :html, :json
   def index
     @students = Student.all
     @courses  = Course.all
@@ -10,7 +10,7 @@ class ClassroomsController < ApplicationController
   end
 
   def create
-    respond_with Classroom.create(
+    respond_with Classroom.create!(
       student_id: classrooms_params[:student][:id],
       course_id: classrooms_params[:course][:id]
     )

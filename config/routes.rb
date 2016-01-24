@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   resources :classrooms, only: [:index, :create, :destroy], defaults: { format: :json }
-
   resources :courses
   resources :students
   root "classrooms#index"
