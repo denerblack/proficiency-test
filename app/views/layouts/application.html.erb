@@ -6,10 +6,10 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body <%= "data-no-turbolinks='true'".html_safe if controller_name=="classrooms"%>>
 
 <ul class="nav nav-pills">
-  <li role="presentation"><a href="/">Classrooms</a></li>
+  <li role="presentation"><a href="/" data-no-turbolink="true">Classrooms</a></li>
   <li role="presentation"><a href="/students">Students</a></li>
   <li role="presentation"><a href="/courses">Courses</a></li>
 </ul>

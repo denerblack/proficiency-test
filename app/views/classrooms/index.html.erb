@@ -1,5 +1,5 @@
-<div class="container" ng-app="ClassroomCenter">
-  <h1>Classrooms</h1>
+<div class="container" ng-app="ClassroomCenter" data-no-turbolink="true">
+  <h1><%= page_title %></h1>
 
   <div ng-controller="classroomsController">
     <div class="well">
@@ -8,17 +8,17 @@
       <form ng-submit="addClassroom()">
         <div class="row">
           <div class="col-xs-6">
-            <select ng-model="newClassroom.classroom.course"
+            <select id="selectCourse" ng-model="newClassroom.classroom.course"
                     ng-options="course as course.name for course in courses"
                     class="form-control">
-              <option value="">Please select a Course</option>
+              <option value=""><%= t('labels.classrooms.select_a_course')%></option>
             </select>
           </div>
           <div class="col-xs-6">
-            <select ng-model="newClassroom.classroom.student"
+            <select id="selectStudent" ng-model="newClassroom.classroom.student"
                     ng-options="student as student.name for student in students track by student.id"
                     class="form-control">
-              <option value="">Please select a Student</option>
+              <option value=""><%= t('labels.classrooms.select_a_student') %></option>
             </select>
           </div>
         </div>

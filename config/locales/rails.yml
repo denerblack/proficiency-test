@@ -207,5 +207,28 @@ pt-BR:
     errors:
       <<: *errors
   activerecord:
+    models:
+      student: Estudante
+      course: Curso
     errors:
       <<: *errors
+
+  simple_form:
+    labels:
+      student:
+        name: Nome
+        register_number: Matrícula
+      course:
+        name: Nome
+        description: Descrição
+
+  labels:
+    classrooms:
+      select_a_course: Selecione um Curso
+      select_a_student: Selecione um Curso
+      course_name: Nome do Curso
+      student_name: Nome do Estudante
+  title:
+    classrooms: Turmas
+    students: Estudantes
+    courses: Cursos

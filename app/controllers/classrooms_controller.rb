@@ -21,6 +21,7 @@ class ClassroomsController < ApplicationController
   end
 
   def classrooms_params
+    puts params
     params.require(:classroom).permit(course: [:id, :name], student: [:id, :name])
   end
 end
